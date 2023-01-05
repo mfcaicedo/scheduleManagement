@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("competence")
+@CrossOrigin("*")
 public class CompetenceController {
 
     @Autowired //INYECCION DE DEPENDENCIAS
