@@ -15,7 +15,7 @@ public class Ambient {
     private String state;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "schedule_id")
+    @JoinColumn(name = "schedule_all_id")
     private Schedule schedule;
 
     public Ambient(){}
@@ -85,4 +85,5 @@ public class Ambient {
     public void setState(String state) {
         this.state = state;
     }
+
 }

@@ -1,7 +1,6 @@
 package com.management.domain.entities;
 
 import jakarta.persistence.*;
-import org.springframework.web.service.annotation.GetExchange;
 
 import java.util.Date;
 import java.util.List;
@@ -9,20 +8,20 @@ import java.util.List;
 @Entity
 @Table(name = "schedule")
 public class Schedule {
-
-    /**
-     * Atributos
-     * */
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+    @Column
     private String day;
-    private Date init;
-    private Date end;
+    @Column
+    private Date init_class;
+    @Column
+    private Date end_class;
+    @Column
     private String duration;
 
     @OneToMany(mappedBy = "schedule")
-    private List<Ambient> ambients;
+    private List<Ambient> ambientes;
     @OneToMany(mappedBy = "schedule")
     private List<Competence> competences;
     @OneToMany(mappedBy = "schedule")
@@ -30,13 +29,13 @@ public class Schedule {
 
     public Schedule(){}
 
-    public Schedule(long id, String day, Date init, Date end, String duration, List<Ambient> ambients, List<Competence> competences, List<Teacher> teachers) {
+    public Schedule(long id, String day, Date init_class, Date end_class, String duration, List<Ambient> ambient, List<Competence> competences, List<Teacher> teachers) {
         this.id = id;
         this.day = day;
-        this.init = init;
-        this.end = end;
+        this.init_class = init_class;
+        this.end_class = end_class;
         this.duration = duration;
-        this.ambients = ambients;
+        this.ambientes = ambient;
         this.competences = competences;
         this.teachers = teachers;
     }
@@ -57,20 +56,20 @@ public class Schedule {
         this.day = day;
     }
 
-    public Date getInit() {
-        return init;
+    public Date getInit_class() {
+        return init_class;
     }
 
-    public void setInit(Date init) {
-        this.init = init;
+    public void setInit_class(Date init_class) {
+        this.init_class = init_class;
     }
 
-    public Date getEnd() {
-        return end;
+    public Date getEnd_class() {
+        return end_class;
     }
 
-    public void setEnd(Date end) {
-        this.end = end;
+    public void setEnd_class(Date end_class) {
+        this.end_class = end_class;
     }
 
     public String getDuration() {
@@ -81,12 +80,12 @@ public class Schedule {
         this.duration = duration;
     }
 
-    public List<Ambient> getAmbients() {
-        return ambients;
+    public List<Ambient> getAmbient() {
+        return ambientes;
     }
 
-    public void setAmbients(List<Ambient> ambients) {
-        this.ambients = ambients;
+    public void setAmbient(List<Ambient> ambient) {
+        this.ambientes = ambient;
     }
 
     public List<Competence> getCompetences() {

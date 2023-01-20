@@ -30,9 +30,9 @@ public class ScheduleImplService implements IScheduleService {
     public Schedule update(Long id, Schedule schedule) {
         Schedule schedule1 = this.findById(id);
         schedule1.setDay(schedule.getDay());
-        schedule1.setInit(schedule.getInit());
-        schedule1.setEnd(schedule.getEnd());
-        schedule1.setAmbients(schedule.getAmbients());
+        schedule1.setInit_class(schedule.getInit_class());
+        schedule1.setEnd_class(schedule.getEnd_class());
+        schedule1.setAmbient(schedule.getAmbient());
         schedule1.setDuration(schedule.getDuration());
         schedule1.setCompetences(schedule.getCompetences());
         schedule1.setTeachers(schedule.getTeachers());

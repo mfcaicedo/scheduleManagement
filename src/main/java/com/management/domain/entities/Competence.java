@@ -17,17 +17,18 @@ public class Competence {
     private Program program;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "schedule_id")
+    @JoinColumn(name = "schedule_all_id")
     private Schedule schedule;
     
     public Competence(){}
 
-    public Competence(long id, String name, String type, String state, Program program) {
+    public Competence(long id, String name, String type, String state, Program program, Schedule schedule) {
         this.id = id;
         this.name = name;
         this.type = type;
         this.state = state;
         this.program = program;
+        this.schedule = schedule;
     }
 
     public long getId() {
@@ -68,5 +69,13 @@ public class Competence {
 
     public void setProgram(Program program) {
         this.program = program;
+    }
+
+    public Schedule getSchedule() {
+        return schedule;
+    }
+
+    public void setSchedule(Schedule schedule) {
+        this.schedule = schedule;
     }
 }
