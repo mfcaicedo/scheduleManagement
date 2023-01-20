@@ -16,7 +16,7 @@ public class Program {
     @Column
     private String name;
 
-    //@JsonIgnore
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "academicPeriod_id")
     private AcademicPeriod academicPeriod;

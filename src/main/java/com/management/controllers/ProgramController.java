@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("program")
+@CrossOrigin("*")
 public class ProgramController {
     @Autowired
     private IProgramService programService;
