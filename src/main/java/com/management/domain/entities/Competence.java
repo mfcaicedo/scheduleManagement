@@ -2,6 +2,8 @@ package com.management.domain.entities;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "competence")
 public class Competence {
@@ -16,19 +18,18 @@ public class Competence {
     @JoinColumn(name = "program_id")
     private Program program;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "schedule_id")
-    private Schedule schedule;
-    
+    @OneToMany(mappedBy = "competence")
+    private List<Schedule> schedules;
+
     public Competence(){}
 
-    public Competence(long id, String name, String type, String state, Program program, Schedule schedule) {
+    public Competence(long id, String name, String type, String state, Program program, List<Schedule> schedules) {
         this.id = id;
         this.name = name;
         this.type = type;
         this.state = state;
         this.program = program;
-        this.schedule = schedule;
+        this.schedules = schedules;
     }
 
     public long getId() {
@@ -71,11 +72,11 @@ public class Competence {
         this.program = program;
     }
 
-    public Schedule getSchedule() {
-        return schedule;
+    public List<Schedule> getSchedules() {
+        return schedules;
     }
 
-    public void setSchedule(Schedule schedule) {
-        this.schedule = schedule;
+    public void setSchedules(List<Schedule> schedules) {
+        this.schedules = schedules;
     }
 }

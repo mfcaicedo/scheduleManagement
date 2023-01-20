@@ -2,6 +2,8 @@ package com.management.domain.entities;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "ambient")
 public class Ambient {
@@ -14,20 +16,19 @@ public class Ambient {
     private int ability;
     private String state;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "schedule_id")
-    private Schedule schedule;
+    @OneToMany(mappedBy = "ambient")
+    private List<Schedule> schedules;
 
     public Ambient(){}
 
-    public Ambient(long id, String name, String location, Enum_TypeEnvironment typeEnvironment, int ability, String state, Schedule schedule) {
+    public Ambient(long id, String name, String location, Enum_TypeEnvironment typeEnvironment, int ability, String state, List<Schedule> schedules) {
         this.id = id;
         this.name = name;
         this.location = location;
         this.typeEnvironment = typeEnvironment;
         this.ability = ability;
         this.state = state;
-        this.schedule = schedule;
+        this.schedules = schedules;
     }
 
     public long getId() {
@@ -70,14 +71,6 @@ public class Ambient {
         this.ability = ability;
     }
 
-    public Schedule getSchedule() {
-        return schedule;
-    }
-
-    public void setSchedule(Schedule schedule) {
-        this.schedule = schedule;
-    }
-
     public String getState() {
         return state;
     }
@@ -86,4 +79,11 @@ public class Ambient {
         this.state = state;
     }
 
+    public List<Schedule> getSchedules() {
+        return schedules;
+    }
+
+    public void setSchedules(List<Schedule> schedules) {
+        this.schedules = schedules;
+    }
 }

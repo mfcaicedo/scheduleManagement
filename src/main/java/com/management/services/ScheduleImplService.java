@@ -34,9 +34,10 @@ public class ScheduleImplService implements IScheduleService {
         schedule1.setEnd_class(schedule.getEnd_class());
         schedule1.setAmbient(schedule.getAmbient());
         schedule1.setDuration(schedule.getDuration());
-        schedule1.setCompetences(schedule.getCompetences());
-        schedule1.setTeachers(schedule.getTeachers());
-        return null;
+        schedule1.setCompetence(schedule.getCompetence());
+        schedule1.setTeacher(schedule.getTeacher());
+
+        return schedule1;
     }
 
 }

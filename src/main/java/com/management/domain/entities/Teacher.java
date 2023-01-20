@@ -1,6 +1,8 @@
 package com.management.domain.entities;
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "teacher")
 public class Teacher {
@@ -17,13 +19,12 @@ public class Teacher {
     private String area;
     private String status;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "schedule_id")
-    private Schedule schedule;
+    @OneToMany(mappedBy = "teacher")
+    private List<Schedule> schedules;
 
     public Teacher() {}
 
-    public Teacher(long id, String name, String lastname, Enum_TypeId tipoId, String identityCard, Enum_TypeTeacher type, Enum_TypeContract typeContract, String area, String status, Schedule schedule) {
+    public Teacher(long id, String name, String lastname, Enum_TypeId tipoId, String identityCard, Enum_TypeTeacher type, Enum_TypeContract typeContract, String area, String status, List<Schedule> schedules) {
         this.id = id;
         this.name = name;
         this.lastname = lastname;
@@ -33,7 +34,7 @@ public class Teacher {
         this.typeContract = typeContract;
         this.area = area;
         this.status = status;
-        this.schedule = schedule;
+        this.schedules = schedules;
     }
 
     public long getId() {
@@ -108,11 +109,11 @@ public class Teacher {
         this.status = status;
     }
 
-    public Schedule getSchedule() {
-        return schedule;
+    public List<Schedule> getSchedules() {
+        return schedules;
     }
 
-    public void setSchedule(Schedule schedule) {
-        this.schedule = schedule;
+    public void setSchedules(List<Schedule> schedules) {
+        this.schedules = schedules;
     }
 }

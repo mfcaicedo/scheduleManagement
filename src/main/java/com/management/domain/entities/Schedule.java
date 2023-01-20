@@ -20,24 +20,29 @@ public class Schedule {
     @Column
     private String duration;
 
-    @OneToMany(mappedBy = "schedule")
-    private List<Ambient> ambientes;
-    @OneToMany(mappedBy = "schedule")
-    private List<Competence> competences;
-    @OneToMany(mappedBy = "schedule")
-    private List<Teacher> teachers;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ambient_id")
+    private Ambient ambient;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "teacher_id")
+    private Teacher teacher;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "competence_id")
+    private Competence competence;
 
     public Schedule(){}
 
-    public Schedule(long id, String day, Date init_class, Date end_class, String duration, List<Ambient> ambient, List<Competence> competences, List<Teacher> teachers) {
+    public Schedule(long id, String day, Date init_class, Date end_class, String duration, Ambient ambient, Teacher teacher, Competence competence) {
         this.id = id;
         this.day = day;
         this.init_class = init_class;
         this.end_class = end_class;
         this.duration = duration;
-        this.ambientes = ambient;
-        this.competences = competences;
-        this.teachers = teachers;
+        this.ambient = ambient;
+        this.teacher = teacher;
+        this.competence = competence;
     }
 
     public long getId() {
@@ -80,27 +85,27 @@ public class Schedule {
         this.duration = duration;
     }
 
-    public List<Ambient> getAmbient() {
-        return ambientes;
+    public Ambient getAmbient() {
+        return ambient;
     }
 
-    public void setAmbient(List<Ambient> ambient) {
-        this.ambientes = ambient;
+    public void setAmbient(Ambient ambient) {
+        this.ambient = ambient;
     }
 
-    public List<Competence> getCompetences() {
-        return competences;
+    public Teacher getTeacher() {
+        return teacher;
     }
 
-    public void setCompetences(List<Competence> competences) {
-        this.competences = competences;
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
     }
 
-    public List<Teacher> getTeachers() {
-        return teachers;
+    public Competence getCompetence() {
+        return competence;
     }
 
-    public void setTeachers(List<Teacher> teachers) {
-        this.teachers = teachers;
+    public void setCompetence(Competence competence) {
+        this.competence = competence;
     }
 }
