@@ -17,7 +17,7 @@ public class Competence {
     private Program program;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "schedule_all_id")
+    @JoinColumn(name = "schedule_id")
     private Schedule schedule;
     
     public Competence(){}
