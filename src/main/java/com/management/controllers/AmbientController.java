@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("ambient")
+@CrossOrigin("*")
 public class AmbientController {
     @Autowired
     private IAmbientService ambientService;
