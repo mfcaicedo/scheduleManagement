@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("teacher")
+@CrossOrigin("*")
 public class TeacherController {
     @Autowired
     private TeacherImplService teacherService;

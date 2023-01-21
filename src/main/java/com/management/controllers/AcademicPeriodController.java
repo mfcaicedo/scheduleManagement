@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("academicPeriod")
+@CrossOrigin("*")
 public class AcademicPeriodController {
 
     @Autowired
