@@ -31,6 +31,7 @@ public class CompetenceController {
     @RequestMapping(method = RequestMethod.POST, produces = "application/json")
     @ResponseBody
     public Competence create(@RequestBody Competence competence){
+        System.out.println("que llega: " + competence);
         return this.competenceService.create(competence);
     }
 

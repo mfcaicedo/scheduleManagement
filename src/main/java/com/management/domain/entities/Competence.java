@@ -9,13 +9,15 @@ import java.util.List;
 @Table(name = "competence")
 public class Competence {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(columnDefinition = "serial")
     private long id;
     private String name;
     private String type;
     private String state;
-    @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY)
+
+    // @JsonIgnore
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "program_id")
     private Program program;
 
