@@ -1,6 +1,7 @@
 package com.management.controllers;
 
 import com.management.domain.entities.Ambient;
+import com.management.domain.entities.Competence;
 import com.management.services.IAmbientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -39,6 +40,10 @@ public class AmbientController {
         return ambientService.update(id, ambient);
     }
 
-    //FALTA LO DEL DISABLE
+    @RequestMapping(value = "disable/{id}", method = RequestMethod.PATCH, produces = "application/json")
+    @ResponseBody
+    public Ambient disable(@PathVariable long id){
+        return this.ambientService.disableById(id);
+    }
 
 }

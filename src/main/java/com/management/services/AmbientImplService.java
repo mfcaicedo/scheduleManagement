@@ -25,6 +25,7 @@ public class AmbientImplService implements IAmbientService{
 
     @Override
     public Ambient create(Ambient ambient) {
+        System.out.println("TIPO DE AMBIENTE: " + ambient.getTypeEnvironment());
         return repositoryAmbient.save(ambient);
     }
 
@@ -40,8 +41,10 @@ public class AmbientImplService implements IAmbientService{
     }
 
     @Override
-    public void disableById(Long id) {
+    public Ambient disableById(Long id) {
         Ambient ambient = this.findById(id);
         ambient.setState("disabled");
+        return repositoryAmbient.save(ambient);
     }
+
 }

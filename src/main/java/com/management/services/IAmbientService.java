@@ -13,5 +13,5 @@ public interface IAmbientService {
 
     public Ambient update(Long id, Ambient ambient);
 
-    public void disableById(Long id);
+    public Ambient disableById(Long id);
 }
