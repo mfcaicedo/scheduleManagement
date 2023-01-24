@@ -16,4 +16,6 @@ public interface ICompetenceService {
 
     public Competence disableById(Long id);
 
+    public List<Competence> findCompetencesByProgramId(Long id);
+
 }

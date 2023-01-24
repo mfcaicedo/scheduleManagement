@@ -1,10 +1,12 @@
 package com.management.services;
 
 import com.management.domain.entities.Competence;
+import com.management.domain.entities.Program;
 import com.management.repository.IRepositoryCompetence;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 @Service
 public class CompetenceImplService implements  ICompetenceService{
@@ -44,5 +46,12 @@ public class CompetenceImplService implements  ICompetenceService{
         Competence competence = this.findById(id);
         competence.setState("disabled");
         return repositoryCompetence.save(competence); 
+    }
+
+    @Override
+    public List<Competence> findCompetencesByProgramId(Long id) {
+        List<Competence> auxLstCompetence = new ArrayList<>();
+        repositoryCompetence.loadCompetences(id).forEach(auxLstCompetence::add);
+        return auxLstCompetence;
     }
 }

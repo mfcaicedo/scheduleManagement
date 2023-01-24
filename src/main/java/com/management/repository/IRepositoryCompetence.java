@@ -3,10 +3,12 @@ package com.management.repository;
 import com.management.domain.entities.Competence;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
 
-public interface IRepositoryCompetence extends JpaRepository<Competence, Long> {
+import java.util.List;
 
-    @Query(value = "select * from  competence where program_id =?1",nativeQuery = true)
-    public boolean loadCompetences(long id);
+public interface IRepositoryCompetence extends CrudRepository<Competence, Long> {
+    @Query(value = "select * from competence where program_id =?1",nativeQuery = true)
+   public abstract List<Competence> loadCompetences(long id);
 
 }
