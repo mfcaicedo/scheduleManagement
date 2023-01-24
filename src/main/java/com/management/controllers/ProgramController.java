@@ -38,4 +38,11 @@ public class ProgramController {
     public Program update(@RequestBody Program program, @PathVariable Long id){
         return programService.update(id, program);
     }
+    @RequestMapping(value = "/programAcademicPeriod/{id}", method = RequestMethod.GET, produces = "application/json")
+    @ResponseBody
+    public List<Program> loadPrograms(@PathVariable("id") Long id){
+        return (List<Program>)programService.findProgramsByAcademicPeriod(id);
+    }
+
+
 }

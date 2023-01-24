@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface IRepositoryCompetence extends JpaRepository<Competence, Long> {
 
-    @Query(value = "update competence set state=?1 where id=?2",nativeQuery = true)
-    public boolean disableCompetence(String state, long id);
+    @Query(value = "select * from  competence where program_id =?1",nativeQuery = true)
+    public boolean loadCompetences(long id);
 
 }
