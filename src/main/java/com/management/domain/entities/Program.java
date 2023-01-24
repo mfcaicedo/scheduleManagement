@@ -17,7 +17,7 @@ public class Program {
     private String name;
 
     //@JsonIgnore
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "academicPeriod_id")
     private AcademicPeriod academicPeriod;
     @JsonIgnore

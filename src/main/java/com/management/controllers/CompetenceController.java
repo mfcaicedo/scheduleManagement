@@ -1,6 +1,7 @@
 package com.management.controllers;
 
 import com.management.domain.entities.Competence;
+import com.management.domain.entities.Program;
 import com.management.services.ICompetenceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -47,6 +48,10 @@ public class CompetenceController {
         return this.competenceService.disableById(id);
     }
 
-
+    @RequestMapping(value = "/competenceProgram/{id}", method = RequestMethod.GET, produces = "application/json")
+    @ResponseBody
+    public List<Competence> loadCompetences(@PathVariable("id") Long id){
+        return (List<Competence>)competenceService.findCompetencesByProgramId(id);
+    }
 
 }

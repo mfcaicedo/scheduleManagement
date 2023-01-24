@@ -5,6 +5,7 @@ import com.management.repository.IRepositoryProgram;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 @Service
 public class ProgramImplService implements IProgramService {
@@ -35,5 +36,13 @@ public class ProgramImplService implements IProgramService {
         program1.setAcademicPeriod(program.getAcademicPeriod());
         program1.setCompetences(program.getCompetences());
         return repositoryProgram.save(program1);
+    }
+
+    @Override
+    public List<Program> findProgramsByAcademicPeriod(Long id) {
+        List<Program> auxLstProgram = new ArrayList<>();
+        repositoryProgram.loadPrograms(id).forEach(auxLstProgram::add);
+
+        return auxLstProgram;
     }
 }

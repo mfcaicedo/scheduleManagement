@@ -12,4 +12,6 @@ public interface IProgramService {
     public Program create(Program program);
 
     public Program update(Long id, Program program);
+
+    public List<Program> findProgramsByAcademicPeriod(Long id);
 }
