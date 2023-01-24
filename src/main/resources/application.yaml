@@ -1,0 +1,15 @@
+supabase:
+  url: https://app.supabase.com/project/rbvrafwinzmdjkocdcgt
+  anon: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJidnJhZndpbnptZGprb2NkY2d0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzI3NzY3NTMsImV4cCI6MTk4ODM1Mjc1M30.H5gaqhemSqSypYMDFNbUa8GALCW0mM0xva9Jw_Ml4Uc
+  jwt_secret: /Q2g+TdlT6IlBYk3KDjJ1jCQKehPx6qQi3uV+hKsuTOrLT1ia5YHoE+sTf8S/JvkMG0KJnLsBZjd9KjHM5Y+zg==
+
+spring:
+  application:
+    name: Demo
+  main:
+    banner-mode: "off"
+  datasource:
+    url: jdbc:postgresql://db.rbvrafwinzmdjkocdcgt.supabase.co:5432/postgres
+    username: postgres
+    password: Caicedo3235
+    driverClassName: org.postgresql.Driver

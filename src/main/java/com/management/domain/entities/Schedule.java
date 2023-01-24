@@ -1,7 +1,7 @@
 package com.management.domain.entities;
 
-import jakarta.persistence.*;
-import org.springframework.web.service.annotation.GetExchange;
+import javax.persistence.*;
+
 
 import java.util.Date;
 import java.util.List;

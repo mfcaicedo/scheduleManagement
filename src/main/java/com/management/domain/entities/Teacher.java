@@ -1,5 +1,5 @@
 package com.management.domain.entities;
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "teacher")

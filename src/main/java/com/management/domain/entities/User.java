@@ -1,47 +1,36 @@
-
 package com.management.domain.entities;
-import jakarta.persistence.*;
+
+import javax.persistence.*;
+import java.util.Objects;
+import java.util.UUID;
 
 @Entity
-@Table(name = "user_model")
-public class User{
+@Table(name = "users", schema = "auth")
+public class User {
+    private UUID id;
+    private String role;
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-    @Column
-    private String name;
-    @Column
-    private String password;
-
-    public User(){}
-
-    public User(long id, String name, String password) {
-        this.id = id;
-        this.name = name;
-        this.password = password;
-    }
-
-    public long getId() {
+    @Column(name = "id", nullable = false)
+    @GeneratedValue
+    public UUID getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User users = (User) o;
+        return Objects.equals(id, users.id) && Objects.equals(role, users.role);
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, role);
     }
 }
