@@ -42,7 +42,7 @@ public class CompetenceImplService implements  ICompetenceService{
     @Override
     public Competence disableById(Long id) {
         Competence competence = this.findById(id);
-        competence.setState("disabled");
+        competence.setState("desactivado");
         return repositoryCompetence.save(competence); 
     }
 }
