@@ -1,4 +1,5 @@
 package com.management.domain.entities;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -18,7 +19,7 @@ public class Teacher {
     private Enum_TypeContract typeContract;
     private String area;
     private String status;
-
+    @JsonIgnore
     @OneToMany(mappedBy = "teacher")
     private List<Schedule> schedules;
 

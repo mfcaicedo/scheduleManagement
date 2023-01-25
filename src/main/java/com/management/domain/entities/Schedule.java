@@ -31,10 +31,12 @@ public class Schedule {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "competence_id")
     private Competence competence;
+    @Column
+    private int program;
 
     public Schedule(){}
 
-    public Schedule(long id, String day, Date init_class, Date end_class, String duration, Ambient ambient, Teacher teacher, Competence competence) {
+    public Schedule(long id, String day, Date init_class, Date end_class, String duration, Ambient ambient, Teacher teacher, Competence competence, int program) {
         this.id = id;
         this.day = day;
         this.init_class = init_class;
@@ -43,6 +45,7 @@ public class Schedule {
         this.ambient = ambient;
         this.teacher = teacher;
         this.competence = competence;
+        this.program = program;
     }
 
     public long getId() {
@@ -107,5 +110,13 @@ public class Schedule {
 
     public void setCompetence(Competence competence) {
         this.competence = competence;
+    }
+
+    public int getProgram() {
+        return program;
+    }
+
+    public void setProgram(int program) {
+        this.program = program;
     }
 }

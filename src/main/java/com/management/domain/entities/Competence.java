@@ -20,7 +20,7 @@ public class Competence {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "program_id")
     private Program program;
-
+    @JsonIgnore
     @OneToMany(mappedBy = "competence")
     private List<Schedule> schedules;
 

@@ -1,5 +1,6 @@
 package com.management.domain.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -15,7 +16,7 @@ public class Ambient {
     private Enum_TypeEnvironment typeEnvironment;
     private int ability;
     private String state;
-
+    @JsonIgnore
     @OneToMany(mappedBy = "ambient")
     private List<Schedule> schedules;
 

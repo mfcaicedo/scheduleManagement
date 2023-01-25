@@ -36,6 +36,7 @@ public class ScheduleImplService implements IScheduleService {
         schedule1.setDuration(schedule.getDuration());
         schedule1.setCompetence(schedule.getCompetence());
         schedule1.setTeacher(schedule.getTeacher());
+        schedule1.setProgram(schedule.getProgram());
 
         return schedule1;
     }
