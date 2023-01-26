@@ -3,6 +3,7 @@ package com.management.controllers;
 import com.management.domain.entities.Schedule;
 import com.management.services.IScheduleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -37,5 +38,15 @@ public class ScheduleController {
     @ResponseBody
     public Schedule update(@RequestBody Schedule schedule, @PathVariable Long id) {
         return scheduleService.update(id, schedule);
+    }
+
+    /**
+     * Método para eliminar una franja horaria
+     * @param id indentificador del empleado a eliminar
+     */
+    @RequestMapping(value = "{id}", method = RequestMethod.DELETE, produces = "application/json")
+    @ResponseBody
+    public void delete(@PathVariable Long id) {
+        scheduleService.deleteById(id);
     }
 }

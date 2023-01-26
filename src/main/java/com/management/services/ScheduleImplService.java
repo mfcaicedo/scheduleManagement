@@ -40,5 +40,8 @@ public class ScheduleImplService implements IScheduleService {
 
         return schedule1;
     }
-
+    @Override
+    public void deleteById(Long id) {
+        repositorySchedule.deleteById(id);
+    }
 }
