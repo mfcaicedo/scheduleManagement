@@ -42,7 +42,7 @@ public class ScheduleController {
 
     /**
      * Método para eliminar una franja horaria
-     * @param id indentificador del empleado a eliminar
+     * @param id indentificador de la franja horaria a eliminar
      */
     @RequestMapping(value = "{id}", method = RequestMethod.DELETE, produces = "application/json")
     @ResponseBody

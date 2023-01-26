@@ -29,7 +29,6 @@ public class ScheduleImplService implements IScheduleService {
     @Override
     public Schedule update(Long id, Schedule schedule) {
         Schedule schedule1 = this.findById(id);
-        System.out.println("al menos llega ");
         schedule1.setDay(schedule.getDay());
         schedule1.setDuration(schedule.getDuration());
         schedule1.setAmbient(schedule.getAmbient());
