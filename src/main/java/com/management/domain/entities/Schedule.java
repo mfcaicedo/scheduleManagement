@@ -20,15 +20,15 @@ public class Schedule {
     @Column
     private String duration;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "ambient_id")
     private Ambient ambient;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "teacher_id")
     private Teacher teacher;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "competence_id")
     private Competence competence;
     @Column

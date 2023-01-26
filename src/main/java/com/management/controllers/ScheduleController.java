@@ -33,7 +33,7 @@ public class ScheduleController {
         return scheduleService.create(scheule);
     }
 
-    @RequestMapping(value = {"id"}, method = RequestMethod.PATCH, produces = "application/json")
+    @RequestMapping(value = {"{id}"}, method = RequestMethod.PATCH, produces = "application/json")
     @ResponseBody
     public Schedule update(@RequestBody Schedule schedule, @PathVariable Long id) {
         return scheduleService.update(id, schedule);

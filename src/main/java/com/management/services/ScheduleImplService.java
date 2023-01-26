@@ -29,16 +29,17 @@ public class ScheduleImplService implements IScheduleService {
     @Override
     public Schedule update(Long id, Schedule schedule) {
         Schedule schedule1 = this.findById(id);
+        System.out.println("al menos llega ");
         schedule1.setDay(schedule.getDay());
-        schedule1.setInit_class(schedule.getInit_class());
-        schedule1.setEnd_class(schedule.getEnd_class());
-        schedule1.setAmbient(schedule.getAmbient());
         schedule1.setDuration(schedule.getDuration());
+        schedule1.setAmbient(schedule.getAmbient());
         schedule1.setCompetence(schedule.getCompetence());
         schedule1.setTeacher(schedule.getTeacher());
+        schedule1.setInit_class(schedule.getInit_class());
+        schedule1.setEnd_class(schedule.getEnd_class());
         schedule1.setProgram(schedule.getProgram());
 
-        return schedule1;
+        return repositorySchedule.save(schedule1);
     }
 
 }
