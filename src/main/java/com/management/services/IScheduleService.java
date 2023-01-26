@@ -14,4 +14,6 @@ public interface IScheduleService {
 
     public Schedule update(Long id, Schedule schedule);
 
+    public void deleteById(Long id);
+
 }
